@@ -1,0 +1,25 @@
+{
+  "name": "smu-notification",
+  "version": "1.0.0",
+  "type" : "module",
+  "description": "상명대학교 공식 사이트 공지사항 알리미",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llqqssttyy/SMU-Notification.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llqqssttyy/SMU-Notification/issues"
+  },
+  "homepage": "https://github.com/llqqssttyy/SMU-Notification#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
