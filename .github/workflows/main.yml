@@ -1,0 +1,30 @@
+name: Run Program on Weekdays
+
+on:
+  schedule:
+    - cron: '0 20 * * 1-5'  # 평일(월요일부터 금요일) 오후 8시에 실행
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run program
+        run: node index.js
+        
+      - name: Set environment variables from Secrets
+        run: |
+          echo "EMAIL_SERVICE=${{ secrets.EMAIL_SERVICE }}" >> .env
+          echo "EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }}" >> .env
+          echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env
