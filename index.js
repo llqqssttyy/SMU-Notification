@@ -1,16 +1,12 @@
 import * as cheerio from 'cheerio';
 import axios from 'axios';
+import { makeHTML } from './utility/makeHTML.js';
+import { date, formattedDate, month } from './utility/date.js';
+import { sendMail } from './utility/send.js';
 
-const getFormattedDate = () => {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1;
-    const date = today.getDate() - 1;
-
-    return `${year}-${month < 10 ? `0${month}` : `${month}`}-${date < 10 ? `0${date}` : `${date}`}`;
-}
+// 공지사항 페이지로 이동할 url을 생성하기 위해 base url과 query를 분리.
 const SMUOfficialBaseURL = `https://www.smu.ac.kr/lounge/notice/notice.do`;
-const SMUOfficialQuery = `?srcCampus=smu&srStartDt=${getFormattedDate()}&srEndDt=${getFormattedDate()}&mode=list&srCategoryId1=&srSearchKey=&srSearchVal=`;
+const SMUOfficialQuery = `?srcCampus=smu&srStartDt=${formattedDate}&srEndDt=${formattedDate}&mode=list&srCategoryId1=&srSearchKey=&srSearchVal=`;
 
 // selectors
 const listSelector = "#ko > div.board-name-thumb.board-wrap > ul";
@@ -23,27 +19,40 @@ axios.get(`${SMUOfficialBaseURL}${SMUOfficialQuery}`)
     if(res.status === 200) {
         const $ = cheerio.load(res.data);   // full html doc
         const $noticeList = $(listSelector).children('li');
-
-        let todaysNoticeList = [];
         
+        let todaysNoticeList = [];
+
         $noticeList.each(function (idx, notice) {
+            const category = $(notice).find(categorySelector).text();
+            const title = $(notice).find(titleSelector).text();
+            const views = $(notice).find(viewsSelector).text();
+            const url = $(notice).find(titleSelector).attr('href');
+            
             todaysNoticeList[idx] = {
-                category: $(notice).find(categorySelector).text(),
-                title: removeEscapeChar($(notice).find(titleSelector).text()),
-                views: removeEscapeChar($(notice).find(viewsSelector).text()),
-                url: `${SMUOfficialBaseURL}${removeEscapeChar($(notice).find(titleSelector).attr('href'))}`
+                category: category,
+                title: removeEscapeChar(title),
+                views: removeEscapeChar(views),
+                url: `${SMUOfficialBaseURL}${url}`
             }
         })
-        console.log(todaysNoticeList);
+        return todaysNoticeList;
     }
+})
+.then((todaysNoticeList) => {
+    makeHTML(todaysNoticeList, month, date)
+    .then((html) => {
+        sendMail(html);
+    })
+    .catch((err) => {
+        return err;
+    })
 })
 .catch((err) => { console.log(err) })
 
-// 데이터 가공
+// white space 제거하고 공백 요소 제거하기
 const removeEscapeChar = (str) => {
     let arr = str.split('\n');
 
-    // 탭 문자 제거하고 공백 요소 제거하기
     let cleanedStr = arr.map((item) => {
         return item.trim();
     }).filter((item) => {
