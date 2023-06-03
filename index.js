@@ -2,7 +2,7 @@ import * as cheerio from 'cheerio';
 import axios from 'axios';
 import { makeHTML } from './utility/makeHTML.js';
 import { date, formattedDate, month } from './utility/date.js';
-import { sendMail } from './utility/send.js';
+import { sendMail } from './utility/sendMail.js';
 
 // 공지사항 페이지로 이동할 url을 생성하기 위해 base url과 query를 분리.
 const SMUOfficialBaseURL = `https://www.smu.ac.kr/lounge/notice/notice.do`;
@@ -42,7 +42,7 @@ axios.get(`${SMUOfficialBaseURL}${SMUOfficialQuery}`)
     makeHTML(todaysNoticeList, month, date)
     .then((html) => {
         // console.log(html);
-        sendMail(html);
+        sendMail(html, formattedDate);
     })
     .catch((err) => {
         return err;

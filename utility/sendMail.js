@@ -12,11 +12,11 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-export const sendMail = async (html) => {
+export const sendMail = async (html, date) => {
     const mailOptions = {
         from : EMAIL_ADDRESS,
         to: EMAIL_ADDRESS,
-        subject: 'Nodemailer Test',
+        subject: `[${date}] 상명대학교 공지사항 알림`,
         html: html
     };
 

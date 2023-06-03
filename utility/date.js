@@ -1,5 +1,5 @@
 const today = new Date();
-const yesterday = new Date(today.setDate(today.getDate()-3));
+const yesterday = new Date(today.setDate(today.getDate()-1));
 
 export const year = yesterday.getFullYear();
 export const month = yesterday.getMonth() + 1;
