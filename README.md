@@ -7,6 +7,9 @@
 현재는 [상명대학교 공식 홈페이지](https://www.smu.ac.kr/ko/index.do)에 올라온 공지사항만 받아보실 수 있습니다.  
 추후에 [상명대 SW중심사업단](https://swai.smu.ac.kr/)과 [상명대 컴퓨터과학과](https://cs.smu.ac.kr/cs/index.do) 추가 예정입니다.
 
+### 실행 결과
+![result](imgs/result.png)
+
 <br/>
 
 ## 👏 개발 기간
