@@ -34,7 +34,7 @@
    EMAIL_ADDRESS=your-email-address
    EMAIL_PASSWORD=your-password
    ```
-   gmail을 사용하실 경우 PASSWORD엔 2단계 인증을 통해 발급 받은 비밀번호를 넣어줘야 합니다. 해당 내용은 [이곳](https://github.com/llqqssttyy/SMU-Notification/blob/main/utility/sendMail.js)을 참고해주세요.
+   gmail을 사용하실 경우 PASSWORD엔 2단계 인증을 통해 발급 받은 비밀번호를 넣어줘야 합니다. 해당 내용은 [이곳]([https://github.com/llqqssttyy/SMU-Notification/blob/main/utility/sendMail.js](https://github.com/llqqssttyy/TIL/blob/main/Crawling/Chapter4.md#gmail-2%EB%8B%A8%EA%B3%84-%EC%9D%B8%EC%A6%9D-%EC%84%A4%EC%A0%95))을 참고해주세요.
 4. Github Actions를 활성화합니다.
 5. Github Secrets 설정에 .env에 작성한 환경변수를 추가합니다.
 
