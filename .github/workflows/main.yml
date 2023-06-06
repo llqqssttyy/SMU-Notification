@@ -28,3 +28,7 @@ jobs:
           echo "EMAIL_SERVICE=${{ secrets.EMAIL_SERVICE }}" >> .env
           echo "EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }}" >> .env
           echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env
+        env:
+          EMAIL_SERVICE: ${{secrets.EMAIL_SERVICE}}
+          EMAIL_ADDRESS: ${{secrets.EMAIL_ADDRESS}}          
+          EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}          
