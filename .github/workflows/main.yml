@@ -17,12 +17,6 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run program
-        run: node index.js
-        
       - name: Set environment variables from Secrets
         run: |
           echo "EMAIL_SERVICE=${{ secrets.EMAIL_SERVICE }}" >> .env
@@ -31,4 +25,12 @@ jobs:
         env:
           EMAIL_SERVICE: ${{secrets.EMAIL_SERVICE}}
           EMAIL_ADDRESS: ${{secrets.EMAIL_ADDRESS}}          
-          EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}          
+          EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}   
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run program
+        run: node index.js
+        
+             
