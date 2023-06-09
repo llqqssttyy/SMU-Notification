@@ -2,7 +2,7 @@ name: Run Program on Weekdays
 
 on:
   schedule:
-    - cron: '0 12 * * 1-5'  # 평일(월요일부터 금요일) 오후 8시에 실행
+    - cron: '0 10 * * 1-5'  # 평일(월요일부터 금요일) 오후 7시에 실행
 
 jobs:
   build:
