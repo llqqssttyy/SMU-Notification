@@ -1,5 +1,5 @@
+const offset = 1000 * 60 * 60 * 9;  // 밀리초 * 분 * 시간 * 9(UTC +9)
 const today = new Date();
-const yesterday = new Date(today.setDate(today.getDate()-1));
 
 export const year = today.getFullYear();
 export const month = today.getMonth() + 1;

@@ -42,6 +42,7 @@ axios.get(`${SMUOfficialBaseURL}${SMUOfficialQuery}`)
     makeHTML(todaysNoticeList, month, date)
     .then((html) => {
         sendMail(html, formattedDate);
+        // console.log(html);
     })
     .catch((err) => {
         return err;
