@@ -35,7 +35,7 @@
    EMAIL_ADDRESS=your-email
    EMAIL_PASSWORD=your-password
    ```
-   gmail을 사용하실 경우 PASSWORD엔 2단계 인증을 통해 발급 받은 비밀번호를 넣어줘야 합니다. 해당 내용은 [이곳](https://github.com/llqqssttyy/TIL/blob/main/Crawling/Chapter4.md#gmail-2%EB%8B%A8%EA%B3%84-%EC%9D%B8%EC%A6%9D-%EC%84%A4%EC%A0%95)을 참고해주세요.
+   gmail을 사용하실 경우 PASSWORD엔 2단계 인증을 통해 발급 받은 비밀번호를 넣어줘야 합니다. 해당 내용은 [이곳](https://ekundo.tistory.com/16#3%EF%B8%8F%E2%83%A3%C2%A0%20Gmail%202%EB%8B%A8%EA%B3%84%20%EC%9D%B8%EC%A6%9D(%EC%95%B1%20%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8)-1)을 참고해주세요.
 
 <br/>
 
